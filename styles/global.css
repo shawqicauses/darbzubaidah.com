@@ -1,0 +1,328 @@
+/* DONE REVIEWING: GITHUB COMMIT */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Avatar Component */
+  .shc-avatar-base {
+    @apply relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full;
+  }
+
+  .shc-avatar-image-base {
+    @apply aspect-square h-full w-full;
+  }
+
+  .shc-avatar-fallback-base {
+    @apply flex h-full w-full items-center justify-center rounded-full bg-muted;
+  }
+
+  /* Breadcrumb Component */
+  .shc-breadcrumb-list-base {
+    @apply flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5;
+  }
+
+  .shc-breadcrumb-item-base {
+    @apply inline-flex items-center gap-1.5;
+  }
+
+  .shc-breadcrumb-link-base {
+    @apply transition-colors hover:text-foreground;
+  }
+
+  .shc-breadcrumb-page-base {
+    @apply font-normal text-foreground;
+  }
+
+  .shc-breadcrumb-separator-base {
+    @apply [&>svg]:size-3.5;
+  }
+
+  .shc-breadcrumb-ellipsis-base {
+    @apply flex h-9 w-9 items-center justify-center;
+  }
+
+  /* Data-Table Component */
+  .shc-table-wrapper-base {
+    @apply relative w-full overflow-auto;
+  }
+
+  .shc-table-base {
+    @apply w-full caption-bottom text-sm;
+  }
+
+  .shc-table-header-base {
+    @apply [&_tr]:border-b;
+  }
+
+  .shc-table-body-base {
+    @apply [&_tr:last-child]:border-0;
+  }
+
+  .shc-table-footer-base {
+    @apply border-t bg-muted/50 font-medium [&>tr]:last:border-b-0;
+  }
+
+  .shc-table-row-base {
+    @apply border-b transition-colors hover:bg-muted/50 data-[state=checked]:bg-muted/50;
+  }
+
+  .shc-table-head-base {
+    @apply h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0;
+  }
+
+  .shc-table-cell-base {
+    @apply p-4 align-middle [&:has([role=checkbox])]:pr-0;
+  }
+
+  .shc-table-caption-base {
+    @apply mt-4 text-sm text-muted-foreground;
+  }
+
+  /* Sonner Component */
+  .shc-toast-base {
+    @apply !border-border !bg-background !text-foreground !shadow-lg !outline-none focus-visible:!ring-2 focus-visible:!ring-inset focus-visible:!ring-foreground;
+  }
+
+  .shc-toast-title-base {
+    @apply !block !text-sm !font-medium !leading-6 !text-foreground;
+  }
+
+  .shc-toast-description-base {
+    @apply !text-xs !text-muted-foreground;
+  }
+
+  .shc-toast-action-button-base {
+    @apply focus-visible:!ring-no-inset !ml-auto !inline-flex !h-auto !items-center !justify-center !whitespace-nowrap !rounded-md !bg-accent !px-2 !py-1 !text-xs !font-medium !leading-[1.25rem] !text-accent-foreground !outline-none !ring-1 !ring-inset !ring-accent !transition-all !duration-100 !ease-linear hover:!bg-accent-dark hover:!ring-accent-dark focus-visible:!ring-foreground focus-visible:!ring-offset-2 focus-visible:!ring-offset-background disabled:!pointer-events-none disabled:!cursor-not-allowed disabled:!opacity-50 peer-[.shc-toast-cancel-button-base]:!ml-0;
+  }
+
+  .shc-toast-cancel-button-base {
+    @apply focus-visible:!ring-no-inset !ml-auto inline-flex !h-auto !items-center !justify-center !whitespace-nowrap !rounded-md !bg-background !px-2 !py-1 !text-xs !font-medium !leading-[1.25rem] !text-foreground !outline-none !ring-1 !ring-inset !ring-input !transition-all !duration-100 !ease-linear hover:!bg-input focus-visible:!ring-foreground focus-visible:!ring-offset-2 focus-visible:!ring-offset-background disabled:!pointer-events-none disabled:!cursor-not-allowed disabled:!opacity-50;
+  }
+
+  /* Dialog/Alert-Dialog/Sheet Component */
+  /* Dialog/Alert-Dialog/Sheet (Overlay) */
+  .shc-dialog-overlay-base {
+    @apply fixed inset-0 z-10 bg-black/75 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0;
+  }
+
+  /* Dialog/Alert-Dialog (Content) */
+  .shc-dialog-content-base {
+    @apply fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-border bg-background shadow-lg outline-none duration-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-1/2 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-1/2 [&:is(.dialog)]:gap-4 [&:is(.dialog)]:p-6 [@media(min-width:32rem)]:rounded-lg;
+  }
+
+  /* Dialog/Sheet (Close) */
+  .shc-dialog-close-base {
+    @apply absolute right-4 top-4 rounded-sm opacity-75 outline-none ring-offset-background transition duration-100 ease-in-out hover:opacity-100 focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=open]:bg-muted;
+  }
+
+  /* Dialog/Sheet (Header) */
+  .shc-dialog-header-base {
+    @apply flex flex-col space-y-2 text-center sm:text-left;
+  }
+
+  .shc-alert-dialog-header-base {
+    @apply flex flex-col space-y-2 bg-background px-4 pb-4 pt-5 text-center sm:p-6 sm:pb-4 sm:text-left;
+  }
+
+  /* Dialog/Alert-Dialog/Sheet (Title) */
+  .shc-dialog-title-base {
+    @apply text-lg font-semi-bold leading-none text-foreground;
+  }
+
+  /* Dialog/Alert-Dialog/Sheet (Description) */
+  .shc-dialog-description-base {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Dialog/Sheet (Footer) */
+  .shc-dialog-footer-base {
+    @apply flex flex-col-reverse space-y-2 sm:flex-row sm:justify-end sm:space-x-2 sm:space-y-0;
+  }
+
+  .shc-alert-dialog-footer-base {
+    @apply flex flex-col-reverse bg-muted/50 px-4 py-3 sm:flex-row sm:justify-end sm:space-x-2 sm:px-6;
+  }
+
+  /* Sheet Component */
+  .shc-sheet-base {
+    @apply fixed z-50 gap-4 bg-background p-6 shadow-lg outline-none transition duration-100 ease-in-out focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-foreground data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out;
+  }
+
+  .shc-sheet-top {
+    @apply inset-x-0 top-0 border-b border-border data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top;
+  }
+
+  .shc-sheet-right {
+    @apply inset-y-0 right-0 h-full w-3/4 border-l border-border data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm;
+  }
+
+  .shc-sheet-bottom {
+    @apply inset-x-0 bottom-0 border-t border-border data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom;
+  }
+
+  .shc-sheet-left {
+    @apply inset-y-0 left-0 h-full w-3/4 border-r border-border data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm;
+  }
+
+  /* Command Component */
+  .shc-command-base {
+    @apply flex h-full w-full flex-col overflow-hidden rounded-md bg-background text-foreground;
+  }
+
+  .shc-command-dialog-base {
+    @apply [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5;
+  }
+
+  .shc-command-input-base {
+    @apply shc-input-base h-11 bg-transparent text-sm ring-transparent focus-visible:ring-transparent;
+  }
+
+  .shc-command-list-base {
+    @apply max-h-80 overflow-y-auto overflow-x-hidden outline-none;
+  }
+
+  .shc-command-empty-base {
+    @apply py-6 text-center text-sm;
+  }
+
+  .shc-command-group-base {
+    @apply overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground;
+  }
+
+  .shc-command-separator-base {
+    @apply -mx-1 h-px bg-border;
+  }
+
+  .shc-command-item-base {
+    @apply relative flex cursor-default select-none items-center rounded-md px-2 py-1.5 text-sm leading-5 outline-none data-[disabled=true]:pointer-events-none data-[disabled=true]:cursor-not-allowed data-[selected=true]:bg-muted data-[selected=true]:text-foreground data-[disabled=true]:opacity-50;
+  }
+
+  .shc-command-shortcut-base {
+    @apply ml-auto text-xs tracking-widest text-muted-foreground;
+  }
+
+  /* Popover Component */
+  .shc-popover-content-base {
+    @apply z-50 w-72 rounded-md border border-border bg-background p-4 text-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+  }
+
+  /* Card Component */
+  .shc-card {
+    @apply rounded-md border border-border bg-background text-foreground shadow-sm;
+  }
+
+  .shc-card-header {
+    @apply flex flex-col space-y-1 border-b border-border px-4 py-5 sm:px-6;
+  }
+
+  .shc-card-title {
+    @apply text-base font-semi-bold leading-none text-foreground sm:text-lg sm:leading-none;
+  }
+
+  .shc-card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .shc-card-content {
+    @apply px-4 py-5 sm:px-6;
+  }
+
+  .shc-card-footer {
+    @apply flex items-center space-x-1 border-t border-border px-4 py-5 sm:px-6;
+  }
+
+  /* Form Component */
+  .shc-label-base {
+    @apply block text-sm font-medium leading-6 text-foreground peer-disabled:pointer-events-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50;
+  }
+
+  .shc-description-base {
+    @apply mt-2 text-sm;
+  }
+
+  .shc-input-base {
+    @apply shc-transition flex w-full rounded-md border-0 bg-foreground/5 px-2.5 py-1.5 text-sm leading-6 text-foreground shadow-sm outline-none ring-1 ring-inset ring-input file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .shc-switch-base {
+    @apply shc-transition inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-muted;
+  }
+
+  .shc-switch-thumb-base {
+    @apply shc-transition pointer-events-none inline-block h-5 w-5 rounded-full bg-background shadow-sm ring-0 data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0;
+  }
+
+  /* Button Component */
+  .shc-button-base {
+    @apply shc-transition [&:is(.shc-button-primary,.shc-button-secondary)]:focus-visible:ring-no-inset inline-flex items-center justify-center whitespace-nowrap text-sm font-medium leading-[1.25rem] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 [&:is(.shc-button-outline)]:focus-visible:ring-foreground [&:is(.shc-button-primary,.shc-button-secondary)]:text-white [&:is(.shc-button-primary,.shc-button-secondary)]:focus-visible:ring-foreground [&:is(.shc-button-primary,.shc-button-secondary)]:focus-visible:ring-offset-2 [&:is(.shc-button-primary,.shc-button-secondary)]:focus-visible:ring-offset-background [&:is(:not(.shc-button-ghost))]:shadow-sm [&:is(:not(.shc-button-ghost,.shc-button-link))]:ring-1 [&:is(:not(.shc-button-link))]:rounded-md [&:is(:not(.shc-button-link))]:ring-inset;
+  }
+
+  .shc-button-primary {
+    @apply bg-primary ring-primary hover:bg-primary-dark hover:ring-primary-dark;
+  }
+
+  .shc-button-secondary {
+    @apply bg-secondary ring-secondary hover:bg-secondary-dark hover:ring-secondary-dark;
+  }
+
+  .shc-button-accent {
+    @apply bg-accent text-accent-foreground ring-accent hover:bg-accent-dark hover:ring-accent-dark;
+  }
+
+  .shc-button-outline {
+    @apply bg-background ring-input hover:bg-input;
+  }
+
+  .shc-button-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .shc-button-link {
+    @apply underline decoration-input decoration-1 underline-offset-2 hover:decoration-foreground focus-visible:decoration-foreground;
+  }
+
+  .shc-button-normal {
+    @apply px-2.5 py-1.5;
+  }
+
+  .shc-button-sm {
+    @apply px-2 py-1;
+  }
+
+  .shc-button-lg {
+    @apply px-3 py-2;
+  }
+
+  .shc-button-icon {
+    @apply h-8 w-8;
+  }
+}
+
+@layer utilities {
+  .ring-no-inset {
+    --tw-ring-inset: ;
+  }
+
+  .shc-flex-middle-start {
+    @apply flex items-center justify-start;
+  }
+
+  .shc-flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .shc-transition {
+    @apply transition-all duration-100 ease-linear;
+  }
+}

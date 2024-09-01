@@ -1,0 +1,12 @@
+# DONE REVIEWING: GITHUB COMMIT
+.env
+.env.local
+.env.development
+.env.production
+.swc
+.next
+.vscode
+build
+dist
+node_modules
+package-lock.json

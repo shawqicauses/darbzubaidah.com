@@ -1,0 +1,18 @@
+{
+  "reviewed": "true",
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "tsx": true,
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "styles/global.css",
+    "cssVariables": true,
+    "baseColor": "zinc",
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "",
+    "utils": ""
+  }
+}
