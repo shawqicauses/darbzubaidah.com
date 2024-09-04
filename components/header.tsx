@@ -1,12 +1,12 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import Image from "next/image"
 import Link from "next/link"
 import {Button} from "./ui"
 
 const Header = function Header() {
   return (
-    <header className="relative h-screen">
-      <div className="max-w-xl-8 mx-auto">
+    <header className="relative">
+      <div className="mx-auto max-w-xl-8">
         <div className="relative z-40 h-auto pt-14 lg:h-screen lg:w-full lg:max-w-xl-2">
           <svg
             viewBox="0 0 100 100"
@@ -31,7 +31,7 @@ const Header = function Header() {
                 The First Application For <span className="text-primary">Umrah</span> Journey
                 <span className="text-primary">.</span>
               </h1>
-              <p className="mt-6 text-lg font-light leading-8 text-muted-foreground">
+              <p className="mt-6 text-lg leading-8 text-muted-foreground">
                 Dar Abo Zubaidah is the first application that can take away the confusion that
                 happens to you while planning your Umrah. We have a pre-arranged Umrah option and a
                 fully-customized one.
