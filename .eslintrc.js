@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 module.exports = {
   extends: [
     "next",
@@ -40,6 +40,7 @@ module.exports = {
         tsx: "never"
       }
     ],
+    "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": ["error", {extensions: [".ts", ".tsx"]}],
     "react/jsx-fragments": "off",
     "react/jsx-props-no-spreading": "off",

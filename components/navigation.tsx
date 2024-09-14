@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 
 import Link from "next/link"
 import {useState} from "react"
@@ -11,7 +11,7 @@ export const navigation = [
   {id: 0, href: "/pre-arranged-umrah", content: "Pre-arranged Umrah"},
   {id: 1, href: "/create-custom-umrah", content: "Create Custom Umrah"},
   {id: 2, href: "/about", content: "About"},
-  {id: 3, href: "/sign-in", content: "Sign in"}
+  {id: 3, href: "/dashboard", content: "Sign in"}
 ]
 
 const Logo = function Logo() {
