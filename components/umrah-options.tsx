@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 
 import {CheckIcon} from "@heroicons/react/24/solid"
 import Link from "next/link"
@@ -56,7 +56,7 @@ const UmrahOptions = function UmrahOptions() {
             <ellipse cx={604} cy={512} rx={604} ry={512} fill="url(#umrah-options-ellipse)" />
             <defs>
               <radialGradient id="umrah-options-ellipse">
-                <stop stopColor="rgb(34, 197, 94)" />
+                <stop stopColor="rgb(var(--primary))" />
                 <stop offset={1} stopColor="rgb(9, 9, 11)" />
               </radialGradient>
             </defs>
