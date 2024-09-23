@@ -1,10 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 import {Montserrat} from "next/font/google"
 import {PropsWithChildren} from "react"
-import "../styles/global.css"
-import Providers from "./providers"
 import Footer from "../components/footer"
 import Navigation from "../components/navigation"
+import {cn} from "../lib/utils"
+import "../styles/global.css"
+import Providers from "./providers"
 
 const font = Montserrat({
   subsets: ["latin"],
@@ -13,11 +14,11 @@ const font = Montserrat({
 
 const Layout = function Layout({children}: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <head />
-      <body className={font.className}>
+      <body className={cn(font.className, "h-full")}>
         <Providers>
-          <div className="bg-background">
+          <div className="h-full bg-background">
             <Navigation />
             {children}
             <Footer />
