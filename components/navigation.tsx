@@ -1,20 +1,20 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 
+import {Dialog, DialogPanel} from "@headlessui/react"
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
 import Link from "next/link"
 import {useState} from "react"
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
-import {Dialog, DialogPanel} from "@headlessui/react"
 
 export const navigation = [
   {id: 0, href: "/pre-arranged-umrah", content: "Pre-arranged Umrah"},
   {id: 1, href: "/create-custom-umrah", content: "Create Custom Umrah"},
   {id: 2, href: "/about", content: "About"},
-  {id: 3, href: "/dashboard", content: "Sign in"}
+  {id: 3, href: "/sign-up", content: "Sign up"}
 ]
 
-const Logo = function Logo() {
+export const Logo = function Logo() {
   /* Logo: Must be edited for client's actual logo */
   return (
     <Link href="/" className="-m-1.5 p-1.5">
@@ -32,7 +32,7 @@ const Navigation = function Navigation() {
   return (
     <nav className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-xl-8">
-        <div className="px-6 pt-6 lg:max-w-xl-2 lg:pl-8 lg:pr-0">
+        <div className="px-6 pt-6 lg:pl-8 lg:pr-0">
           <div className="flex items-center justify-between lg:justify-start">
             <Logo />
             <button
