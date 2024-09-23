@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import Image from "next/image"
 import Link from "next/link"
 import {Button} from "./ui"
@@ -8,13 +8,6 @@ const Header = function Header() {
     <header className="relative">
       <div className="mx-auto max-w-xl-8">
         <div className="relative z-40 h-auto pt-14 lg:h-screen lg:w-full lg:max-w-xl-2">
-          <svg
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-            className="absolute inset-y-0 hidden h-full w-80 translate-x-1/2 transform fill-background lg:right-8 lg:block xl:-right-8">
-            <polygon points="0,0 90,0 50,100 0,100" />
-          </svg>
           <div className="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
             <div className="mx-auto max-w-xl-2 lg:mx-0">
               <div className="hidden sm:mb-10 sm:flex">
@@ -52,7 +45,14 @@ const Header = function Header() {
         </div>
       </div>
       <div className="relative bg-muted lg:absolute lg:inset-y-0 lg:right-0 lg:z-30 lg:w-1/2">
-        <div className="absolute inset-0 z-20 bg-primary mix-blend-multiply" />
+        <svg
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0 z-20 h-full w-80 -translate-x-1/2 transform fill-background">
+          <polygon points="0,0 90,0 50,100 0,100" />
+        </svg>
+        <div className="absolute inset-0 z-10 bg-primary mix-blend-multiply" />
         <Image
           src="/assets/header-image.jpg"
           alt="Umrah"
