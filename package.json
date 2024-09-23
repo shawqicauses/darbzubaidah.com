@@ -1,5 +1,5 @@
 {
-  "reviewed": "true - 02",
+  "reviewed": "true - 03",
   "version": "1.0.0",
   "name": "darbzubaidah.com",
   "description": "Developed by @shawqicauses.",
@@ -7,7 +7,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "payload:dev": "cross-env nodemon",
+    "server:dev": "cross-env nodemon",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
