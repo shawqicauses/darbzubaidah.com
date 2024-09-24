@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT
 
 import {zodResolver} from "@hookform/resolvers/zod"
 import Link from "next/link"
@@ -17,15 +17,14 @@ import {
   FormMessage,
   Input
 } from "../../../components/ui"
-import {signUpSchema} from "../../../lib/schema"
+import {signInSchema} from "../../../lib/schema"
 
-const SignUp = function SignUp() {
-  const form = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+const SignIn = function SignIn() {
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
-      password: "",
-      passwordConfirmation: ""
+      password: ""
     }
   })
 
@@ -33,12 +32,12 @@ const SignUp = function SignUp() {
     <Fragment>
       <div>
         <h2 className="text-xl-2 font-bold leading-9 tracking-tight text-foreground">
-          Create your account<span className="ml-0.5 text-primary">.</span>
+          Sign in to your account<span className="ml-0.5 text-primary">.</span>
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          You have already created an account?
+          Do not have an account?
           <Button variant="link" className="ml-1 p-0" asChild>
-            <Link href="/sign-in">Sign in</Link>
+            <Link href="/sign-up">Create one</Link>
           </Button>
         </p>
       </div>
@@ -65,7 +64,7 @@ const SignUp = function SignUp() {
                 name="password"
                 control={form.control}
                 render={({field}) => (
-                  <FormItem className="mb-4">
+                  <FormItem className="mb-2">
                     <FormLabel>Password</FormLabel>
                     <FormControl>
                       <Input {...field} type="password" />
@@ -75,23 +74,15 @@ const SignUp = function SignUp() {
                 )}
               />
 
-              <FormField
-                name="passwordConfirmation"
-                control={form.control}
-                render={({field}) => (
-                  <FormItem className="mb-6">
-                    <FormLabel>Confirm Password</FormLabel>
-                    <FormControl>
-                      <Input {...field} type="password" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="mb-4 text-sm leading-6">
+                <Button variant="link" className="p-0" asChild>
+                  <Link href="/forgot-password">Forgot password?</Link>
+                </Button>
+              </div>
 
               <div>
-                <Button size="lg" type="submit" className="mb-4 w-full">
-                  Create my account
+                <Button size="lg" type="submit" className="w-full">
+                  Sign in
                 </Button>
               </div>
             </form>
@@ -102,4 +93,4 @@ const SignUp = function SignUp() {
   )
 }
 
-export default SignUp
+export default SignIn
