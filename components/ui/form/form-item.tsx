@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {HTMLAttributes, createContext, forwardRef, useId, useMemo} from "react"
 import {cn} from "../../../lib/utils"
@@ -16,7 +16,7 @@ const FormItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 
     return (
       <FormItemContext.Provider value={value}>
-        <div ref={ref} className={cn("space-y-2", className)} {...props} />
+        <div ref={ref} className={cn("space-y-1", className)} {...props} />
       </FormItemContext.Provider>
     )
   }
