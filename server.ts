@@ -1,14 +1,23 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
+import {inferAsyncReturnType} from "@trpc/server"
+import * as trpcExpress from "@trpc/server/adapters/express"
 import dotenv from "dotenv"
-import path from "path"
 import express from "express"
-import initPayload from "./server/payload"
+import path from "path"
+import {appRouter} from "./server/api"
 import {nextApplication, nextRequestHandler} from "./server/next"
+import initPayload from "./server/payload"
 
 dotenv.config({path: path.resolve(__dirname, ".env")})
 
 const app = express()
 const port = process.env.PORT || 3000
+
+const createContext = function createContext({req, res}: trpcExpress.CreateExpressContextOptions) {
+  return {req, res}
+}
+
+export type ExpressContext = inferAsyncReturnType<typeof createContext>
 
 const start = async function start() {
   const payload = await initPayload({
@@ -19,6 +28,14 @@ const start = async function start() {
       }
     }
   })
+
+  app.use(
+    "/api/trpc",
+    trpcExpress.createExpressMiddleware({
+      router: appRouter,
+      createContext
+    })
+  )
 
   app.use((request, response) => nextRequestHandler(request, response))
   nextApplication.prepare().then(() => {
