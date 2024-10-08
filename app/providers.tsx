@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
 import {httpBatchLink} from "@trpc/client"
@@ -32,7 +32,10 @@ const Providers = function Providers({children}: PropsWithChildren) {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: "http://localhost:3000/api/trpc"
+          url: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/trpc`,
+          fetch(url, options) {
+            return fetch(url, {...options, credentials: "include"})
+          }
         })
       ]
     })
