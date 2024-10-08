@@ -1,9 +1,10 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 
 /* eslint import/no-extraneous-dependencies: "off" */
 
 import tailwindCSSForms from "@tailwindcss/forms"
 import typographyPlugin from "@tailwindcss/typography"
+import {extendTailwindMerge} from "tailwind-merge"
 import {type Config} from "tailwindcss"
 import tailwindCSSAnimate from "tailwindcss-animate"
 import colors from "tailwindcss/colors"
@@ -15,7 +16,7 @@ export const toRGB = function toRGB(value: string): string {
   return parseColor(value).color.join(" ")
 }
 
-export default {
+const config = {
   darkMode: ["class"],
   content: [
     "./app/**/*.{ts,tsx,js,jsx}",
@@ -321,3 +322,36 @@ export default {
     })
   ]
 } satisfies Config
+
+const themeColors: string[] = []
+const configColors: {[key: string]: string | {[key: string]: string}} = config.theme.extend.colors
+
+Object.keys(configColors).forEach((colorKey) => {
+  if (typeof configColors[colorKey] === "string") themeColors.push(colorKey)
+  else if (typeof configColors[colorKey] === "object")
+    Object.keys(configColors[colorKey]).forEach((colorKeyNested) => {
+      if (colorKeyNested === "DEFAULT") themeColors.push(colorKey)
+      else themeColors.push(`${colorKey}-${colorKeyNested}`)
+    })
+})
+
+export const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "max-w": Object.keys(config.theme.maxWidth).map((key) => `max-w-${key}`),
+      "font-size": Object.keys(config.theme.fontSize).map((key) => `text-${key}`),
+      "font-weight": Object.keys(config.theme.fontWeight).map((key) => `font-${key}`),
+      "columns": Object.keys(config.theme.columns).map((key) => `columns-${key}`),
+      "shadow": Object.keys(config.theme.boxShadow).map((key) => `shadow-${key}`),
+      "drop-shadow": Object.keys(config.theme.dropShadow).map((key) => `drop-shadow-${key}`),
+      "blur": Object.keys(config.theme.blur).map((key) => `blur-${key}`),
+      "backdrop-blur": Object.keys(config.theme.backdropBlur).map((key) => `backdrop-blur-${key}`)
+    },
+    theme: {
+      colors: themeColors,
+      borderRadius: Object.values(config.theme.borderRadius)
+    }
+  }
+})
+
+export default config
