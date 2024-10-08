@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {Loader2Icon, MailCheckIcon, MailIcon, MailXIcon} from "lucide-react"
 import Link from "next/link"
@@ -45,7 +45,7 @@ const Page = function Page({params}: {params: Params}) {
         {isError
           ? "Sorry! Unfortunately we could not verify your email address. It looks like you have an in-valid or expired token. Please, try to verify it again in a minute."
           : isPending
-            ? null
+            ? "Wait! We are verifying your email address. Please, wait a minute and do not close the browser tab or window. What about making dua' while waiting?"
             : data.success
               ? "Congrats! We could verify your email address successfully. It looks like you can now start planning your Umrah journey using our existing packages or create your own."
               : null}
@@ -60,7 +60,7 @@ const Page = function Page({params}: {params: Params}) {
       ) : isPending ? null : data.success ? (
         <div className="mt-10 flex w-full max-w-xl items-center justify-center gap-x-4">
           <Button asChild>
-            <Link href="/packages-existing">Existing Packages</Link>
+            <Link href="/sign-in">Sign in</Link>
           </Button>
           <Button variant="link" className="text-background hover:decoration-primary-light" asChild>
             <Link href="/">Home</Link>
