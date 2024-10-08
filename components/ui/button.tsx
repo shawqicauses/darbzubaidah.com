@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {Slot} from "@radix-ui/react-slot"
 import {VariantProps, cva} from "class-variance-authority"
@@ -15,7 +15,8 @@ const buttonVariants = cva("shc-button-base", {
       accent: "shc-button-accent",
       outline: "shc-button-outline",
       ghost: "shc-button-ghost",
-      link: "shc-button-link"
+      link: "shc-button-link",
+      input: "shc-input-base"
     },
     size: {
       normal: "shc-button-normal",
