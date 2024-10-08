@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {fetchRequestHandler} from "@trpc/server/adapters/fetch"
 import {appRouter} from "../../../../server/api"
 
@@ -7,6 +7,7 @@ const handler = async function handler(request: Request) {
     endpoint: "/api/trpc",
     router: appRouter,
     req: request,
+    // @ts-expect-error context passed from express middleware
     createContext: () => ({})
   })
 }
