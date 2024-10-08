@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {ChevronLeft, ChevronRight} from "lucide-react"
 import {ComponentProps} from "react"
@@ -43,7 +43,7 @@ const Calendar = function Calendar({
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell: "w-9 rounded-md text-[0.8rem] font-normal text-muted-foreground",
-        row: "mt-2 flex w-full",
+        row: "mt-2 flex gap-1 w-full",
         cell: "relative h-9 w-9 p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-transparent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-muted [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-range-end)]:bg-muted [&:has([aria-selected].day-range-middle)]:bg-muted [&:has([aria-selected].day-range-start)]:bg-muted",
         day: cn(
           buttonVariants({variant: "ghost"}),
@@ -63,6 +63,13 @@ const Calendar = function Calendar({
         ...classNames
       }}
       components={{IconLeft, IconRight}}
+      defaultMonth={
+        new Date(
+          new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000).getFullYear(),
+          new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000).getMonth()
+        )
+      }
+      disabled={{after: new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000)}}
       {...props}
     />
   )
