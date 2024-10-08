@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import {format} from "date-fns"
 import {Calendar as CalendarIcon} from "lucide-react"
@@ -19,9 +19,9 @@ const DatePicker = function DatePicker({date, children}: DatePickerProps) {
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
+          variant="input"
           className={cn(
-            "w-full max-w-[17.5rem] justify-start text-left font-normal",
+            "w-full justify-start text-left font-normal leading-6",
             !date && "text-muted-foreground"
           )}>
           <CalendarIcon className="mr-2 h-4 w-4" />
