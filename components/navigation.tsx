@@ -1,18 +1,12 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 03
+// DONE REVIEWING: GITHUB COMMIT - 04
 
 import {Dialog, DialogPanel} from "@headlessui/react"
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
 import Link from "next/link"
 import {useState} from "react"
-
-export const navigation = [
-  {id: 0, href: "/pre-arranged-umrah", content: "Pre-arranged Umrah"},
-  {id: 1, href: "/create-custom-umrah", content: "Create Custom Umrah"},
-  {id: 2, href: "/about", content: "About"},
-  {id: 3, href: "/sign-up", content: "Sign up"}
-]
+import {Button} from "./ui"
 
 export const Logo = function Logo() {
   /* Logo: Must be edited for client's actual logo */
@@ -26,13 +20,17 @@ export const Logo = function Logo() {
   )
 }
 
-const Navigation = function Navigation() {
+const Navigation = function Navigation({
+  navigation
+}: {
+  navigation: {id: number; href: string; content: string; special?: boolean; auth: number}[]
+}) {
   const [isMobileNavigationOpened, setIsMobileNavigationOpened] = useState<boolean>(false)
 
   return (
     <nav className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-xl-8">
-        <div className="px-6 pt-6 lg:pl-8 lg:pr-0">
+        <div className="px-6 pt-6 lg:px-8">
           <div className="flex items-center justify-between lg:justify-start">
             <Logo />
             <button
@@ -42,16 +40,26 @@ const Navigation = function Navigation() {
               <span className="sr-only">Open Mobile Navigation</span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
-            <ul className="hidden lg:ml-12 lg:flex lg:gap-x-14">
-              {navigation.map((element) => (
-                <li key={element.id}>
-                  <Link
-                    href={element.href}
-                    className="whitespace-nowrap text-sm font-semi-bold leading-6 text-foreground">
-                    {element.content}
-                  </Link>
-                </li>
-              ))}
+            <ul className="hidden lg:ml-12 lg:flex lg:flex-1 lg:items-center lg:gap-x-14">
+              {navigation.map((element) =>
+                element.special ? (
+                  <li key={element.id} className="ml-auto">
+                    <Button variant="accent" size="lg" asChild>
+                      <Link href={element.href} className="whitespace-nowrap text-sm leading-6">
+                        {element.content}
+                      </Link>
+                    </Button>
+                  </li>
+                ) : (
+                  <li key={element.id}>
+                    <Link
+                      href={element.href}
+                      className="whitespace-nowrap text-sm font-semi-bold leading-6 text-foreground">
+                      {element.content}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>

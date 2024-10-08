@@ -1,9 +1,8 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 
 import Link from "next/link"
-import {navigation} from "./navigation"
 
 const socials = [
   {
@@ -46,10 +45,14 @@ const socials = [
   }
 ]
 
-const Footer = function Footer() {
+const Footer = function Footer({
+  navigation
+}: {
+  navigation: {id: number; href: string; content: string}[]
+}) {
   return (
     <footer>
-      <div className="mx-auto max-w-xl-7 overflow-hidden px-6 py-20">
+      <div className="mx-auto max-w-xl-8 overflow-hidden px-6 py-20">
         <nav
           aria-label="Footer"
           className="-mb-6 columns-1 sm:columns-2 md:flex md:justify-center md:space-x-12">
