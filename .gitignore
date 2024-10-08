@@ -1,4 +1,4 @@
-# DONE REVIEWING: GITHUB COMMIT
+# DONE REVIEWING: GITHUB COMMIT - 01
 .env
 .env.local
 .env.development
@@ -10,3 +10,4 @@ build
 dist
 node_modules
 package-lock.json
+payload-types.ts
