@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 
 import {CheckIcon} from "@heroicons/react/24/solid"
 import Link from "next/link"
@@ -7,10 +7,10 @@ import {Button} from "./ui"
 const umrahOptions = [
   {
     id: 0,
-    href: "/pre-arranged-umrah",
-    name: "Pre-arranged Umrah",
+    href: "/packages-existing",
+    name: "Existing Package",
     description:
-      "Our team has created a pre-arranged Umrah option that includes airline tickets, hotel rooms, and other features.",
+      "Our team has created an existing package that includes airline tickets, hotel rooms, and other features.",
     price: "999 USD",
     per: "3 Travelers",
     features: [
@@ -65,8 +65,8 @@ const UmrahOptions = function UmrahOptions() {
       </div>
       <div className="flow-root bg-background pb-24 sm:pb-32">
         <div className="-mt-80">
-          <div className="mx-auto max-w-xl-7 px-6 lg:px-8">
-            <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-xl-4 lg:grid-cols-2">
+          <div className="mx-auto max-w-xl-8 px-6 lg:px-8">
+            <div className="mx-auto grid w-full max-w-none grid-cols-1 gap-8 md:max-w-xl-2 lg:max-w-xl-4 lg:grid-cols-2">
               {umrahOptions.map((umrahOption) => (
                 <div
                   key={umrahOption.id}
@@ -103,7 +103,7 @@ const UmrahOptions = function UmrahOptions() {
                     size="lg"
                     className="mt-10"
                     asChild>
-                    <Link href={umrahOption.href}>Start your Umrah</Link>
+                    <Link href={umrahOption.href}>Start your journey</Link>
                   </Button>
                 </div>
               ))}
@@ -114,10 +114,10 @@ const UmrahOptions = function UmrahOptions() {
                   </h3>
                   <p className="mt-1 text-base leading-7 text-muted-foreground">
                     Is what we are offering is not clear to you and you need more assistant to help
-                    you choose between a pre-arranged Umrah and a customizable one?
+                    you choose between an existing package and a customizable one?
                   </p>
                 </div>
-                <Button variant="outline" asChild>
+                <Button variant="accent" className="w-full lg:w-max" asChild>
                   <Link href="mailto:contact@darbzubaidah.com">Contact us</Link>
                 </Button>
               </div>
