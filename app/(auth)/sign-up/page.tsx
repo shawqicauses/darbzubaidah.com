@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 
 import {zodResolver} from "@hookform/resolvers/zod"
 import {useQuery} from "@tanstack/react-query"
@@ -45,7 +45,7 @@ const SignUp = function SignUp() {
     queryKey: ["countries"],
     queryFn: async () => {
       const response = await fetch(
-        ["https://restcountries.com/v3.1/alls", ["fields", "name"].join("=")].join("?")
+        ["https://restcountries.com/v3.1/all", ["fields", "name"].join("=")].join("?")
       )
 
       const data = await response.json()
