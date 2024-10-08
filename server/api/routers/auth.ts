@@ -1,11 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {TRPCError} from "@trpc/server"
 import {emailVerificationSchema, signInSchema, signUpSchema} from "../../../lib/schema"
 import initPayload from "../../payload"
 import {procedure, router} from "../trpc"
 
 const authRouter = router({
-  signUp: procedure.input(signUpSchema).mutation(async ({input, ctx}) => {
+  signUp: procedure.input(signUpSchema).mutation(async ({input}) => {
     const {firstName, lastName, dateOfBirth, nationality, passportNumber, email, password} = input
 
     const payload = await initPayload()
@@ -29,7 +29,7 @@ const authRouter = router({
         data: {
           first_name: firstName,
           last_name: lastName,
-          date_of_birth: dateOfBirth.toString(),
+          date_of_birth: dateOfBirth,
           nationality,
           passport_number: passportNumber,
           email,
@@ -41,7 +41,7 @@ const authRouter = router({
       throw new TRPCError({code: "INTERNAL_SERVER_ERROR"})
     }
 
-    return {success: true, email_verification_sent_to: email}
+    return {success: true, emailVerificationSentTo: email}
   }),
   emailVerification: procedure.input(emailVerificationSchema).query(async ({input}) => {
     const {token} = input

@@ -1,11 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 import {z} from "zod"
 
 export const signUpSchema = z
   .object({
     firstName: z.string().min(1).max(64),
     lastName: z.string().min(1).max(64),
-    dateOfBirth: z.date(),
+    dateOfBirth: z.string().min(1).max(64),
     nationality: z.string().min(1).max(64),
     passportNumber: z.coerce.number().min(1),
     email: z.string().email().min(1).max(64),

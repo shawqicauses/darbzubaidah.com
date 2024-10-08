@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 03
+// DONE REVIEWING: GITHUB COMMIT - 04
 
 import {zodResolver} from "@hookform/resolvers/zod"
 import {useQuery} from "@tanstack/react-query"
@@ -67,9 +67,9 @@ const SignUp = function SignUp() {
 
       toast(errors.DEFAULT.title, {description: errors.DEFAULT.description})
     },
-    onSuccess({email_verification_sent_to}) {
+    onSuccess({emailVerificationSentTo}) {
       toast(successes.AUTH.SIGN_UP.title, {description: successes.AUTH.SIGN_UP.description})
-      router.push("/email-verification" + "?" + "to" + "=" + email_verification_sent_to)
+      router.push(["/email-verification", "?", "to", "=", emailVerificationSentTo].join(""))
     }
   })
 
@@ -79,7 +79,7 @@ const SignUp = function SignUp() {
     defaultValues: {
       firstName: "",
       lastName: "",
-      dateOfBirth: new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000),
+      dateOfBirth: new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000).toString(),
       nationality: "select-a-country",
       passportNumber: 1234567,
       email: "",
@@ -163,7 +163,13 @@ const SignUp = function SignUp() {
                     <FormLabel>Date of Birth</FormLabel>
                     <FormControl>
                       <DatePicker date={field.value}>
-                        <Calendar mode="single" selected={field.value} onSelect={field.onChange} />
+                        <Calendar
+                          mode="single"
+                          selected={new Date(field.value)}
+                          onSelect={(value) => {
+                            field.onChange(value?.toString())
+                          }}
+                        />
                       </DatePicker>
                     </FormControl>
                     <FormMessage />
