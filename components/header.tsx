@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 03
+// DONE REVIEWING: GITHUB COMMIT - 04
 import Image from "next/image"
 import Link from "next/link"
 import {Button} from "./ui"
@@ -25,8 +25,8 @@ const Header = function Header() {
                 <span className="text-primary">.</span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Dar Abo Zubaidah is the first application that can take away the confusion that
-                happens to you while planning your Umrah journey. We have existing packages and a
+                Darb Zubaidah is the first application that can take away the confusion that happens
+                to you while planning your Umrah journey. We have existing packages and a
                 fully-customized ones.
               </p>
               <div className="mt-10 flex items-center gap-x-4">

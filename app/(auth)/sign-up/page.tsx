@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 04
+// DONE REVIEWING: GITHUB COMMIT - 05
 
 import {zodResolver} from "@hookform/resolvers/zod"
 import {useQuery} from "@tanstack/react-query"
@@ -118,7 +118,7 @@ const SignUp = function SignUp() {
     <div className="mx-auto flex min-h-screen w-full max-w-xl-3 flex-col items-center justify-center px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
       <div>
         <h2 className="text-center text-xl-2 font-bold leading-9 tracking-tight text-foreground">
-          Welcome to Dar Abu Zubaidah<span className="ml-0.5 text-primary">.</span>
+          Welcome to Darb Zubaidah<span className="ml-0.5 text-primary">.</span>
         </h2>
         <p className="mt-4 max-w-xl text-center text-base leading-relaxed text-muted-foreground">
           Please, provide us with all information we need to create your account and start planning

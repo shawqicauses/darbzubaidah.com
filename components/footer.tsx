@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 
 import Link from "next/link"
 
@@ -78,7 +78,7 @@ const Footer = function Footer({
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-muted-foreground">
-          &copy; 2024 Dar Abo Zubaidah. Rights Reserved.
+          &copy; 2024 Darb Zubaidah. Rights Reserved.
         </p>
       </div>
     </footer>

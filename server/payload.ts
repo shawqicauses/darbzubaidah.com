@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import dotenv from "dotenv"
 import nodemailer from "nodemailer"
 import path from "path"
@@ -18,7 +18,11 @@ const transport = nodemailer.createTransport({
 })
 
 let cached = (global as any).payload
-if (!cached) cached = (global as any).payload = {client: null, promise: null}
+if (!cached) {
+  const myGlobal = global as any
+  myGlobal.payload = {client: null, promise: null}
+  cached = myGlobal.payload
+}
 
 interface Params {
   initOptions?: Partial<InitOptions>
@@ -34,7 +38,7 @@ const initPayload = async function initPayload({initOptions}: Params = {}): Prom
     cached.promise = payload.init({
       secret: process.env.PAYLOAD_SECRET,
       local: !initOptions?.express,
-      email: {transport, fromAddress: "onboarding@resend.dev", fromName: "Dar Abu Zubaidah"},
+      email: {transport, fromAddress: "onboarding@resend.dev", fromName: "Darb Zubaidah"},
       ...(initOptions || {})
     })
 
