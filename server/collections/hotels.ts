@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {CollectionConfig} from "payload/types"
 
 const Hotels: CollectionConfig = {
@@ -49,6 +49,21 @@ const Hotels: CollectionConfig = {
       options: [
         {value: "not-available", label: "Not Available"},
         {value: "available", label: "Available"}
+      ]
+    },
+    {
+      label: "Images",
+      name: "images",
+      type: "array",
+      required: true,
+      fields: [
+        {
+          label: "Image",
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true
+        }
       ]
     }
   ]

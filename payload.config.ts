@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 03
+// DONE REVIEWING: GITHUB COMMIT - 04
 import {viteBundler} from "@payloadcms/bundler-vite"
 import {mongooseAdapter} from "@payloadcms/db-mongodb"
 import {lexicalEditor} from "@payloadcms/richtext-lexical"
@@ -7,6 +7,7 @@ import path from "path"
 import {buildConfig} from "payload/config"
 import Airlines from "./server/collections/airlines"
 import Hotels from "./server/collections/hotels"
+import Media from "./server/collections/media"
 import Users from "./server/collections/users"
 
 dotenv.config({path: path.resolve(__dirname, ".env")})
@@ -18,5 +19,5 @@ export default buildConfig({
   typescript: {outputFile: path.resolve(__dirname, "payload-types.ts")},
   editor: lexicalEditor({}),
   routes: {admin: "/dashboard"},
-  collections: [Users, Airlines, Hotels]
+  collections: [Users, Media, Airlines, Hotels]
 })
