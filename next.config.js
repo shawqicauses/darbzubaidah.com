@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -6,8 +6,8 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        pathname: "**",
-        port: 3000
+        port: "3000",
+        pathname: "**"
       }
     ]
   }

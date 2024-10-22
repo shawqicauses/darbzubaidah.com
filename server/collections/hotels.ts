@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import {CollectionConfig} from "payload/types"
 
 const Hotels: CollectionConfig = {
@@ -24,21 +24,28 @@ const Hotels: CollectionConfig = {
       type: "select",
       required: true,
       options: [
-        {value: "medina", label: "Medina"},
-        {value: "makkah", label: "Makkah"}
+        {value: "makkah", label: "Makkah"},
+        {value: "medina", label: "Medina"}
       ]
     },
     {
-      label: "Price: From",
-      name: "price_from",
-      type: "number",
-      required: true
-    },
-    {
-      label: "Price: To",
-      name: "price_to",
-      type: "number",
-      required: true
+      label: "Price",
+      name: "price",
+      type: "group",
+      fields: [
+        {
+          label: "From",
+          name: "price_from",
+          type: "number",
+          required: true
+        },
+        {
+          label: "To",
+          name: "price_to",
+          type: "number",
+          required: true
+        }
+      ]
     },
     {
       label: "Availability",
