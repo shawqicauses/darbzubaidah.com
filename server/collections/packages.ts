@@ -1,5 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {CollectionConfig} from "payload/types"
+
+/*
+Notes For Payload CMS:
+- `access: {create: ({req}) => req.user.role === "admin"}` -> Only admins can create.
+- `admin: {condition: () => false}` -> Hides it from admin dashboard.
+*/
 
 const Packages: CollectionConfig = {
   slug: "packages",
@@ -77,6 +83,7 @@ const Packages: CollectionConfig = {
           label: "Duration (Nights)",
           name: "makkah_accommodation_duration",
           type: "number",
+          min: 1,
           required: true
         }
       ]
@@ -102,6 +109,7 @@ const Packages: CollectionConfig = {
           label: "Duration (Nights)",
           name: "median_accommodation_duration",
           type: "number",
+          min: 1,
           required: true
         }
       ]
@@ -110,6 +118,7 @@ const Packages: CollectionConfig = {
       label: "Price",
       name: "price",
       type: "number",
+      min: 1,
       required: true
     },
     {

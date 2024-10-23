@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 import {CollectionConfig} from "payload/types"
 
 const Hotels: CollectionConfig = {
@@ -37,12 +37,14 @@ const Hotels: CollectionConfig = {
           label: "From",
           name: "price_from",
           type: "number",
+          min: 1,
           required: true
         },
         {
           label: "To",
           name: "price_to",
           type: "number",
+          min: 1,
           required: true
         }
       ]

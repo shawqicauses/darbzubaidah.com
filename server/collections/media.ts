@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {CollectionConfig} from "payload/types"
 
 const Media: CollectionConfig = {
@@ -10,9 +10,15 @@ const Media: CollectionConfig = {
     mimeTypes: ["image/png", "image/jpg", "image/jpeg"],
     imageSizes: [
       {
+        name: "thumbnail_mobile",
+        width: 320,
+        height: undefined,
+        position: "centre"
+      },
+      {
         name: "thumbnail",
         width: 768,
-        height: 1024,
+        height: undefined,
         position: "centre"
       },
       {
