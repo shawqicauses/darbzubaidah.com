@@ -1,16 +1,22 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {CollectionConfig} from "payload/types"
+import {isAdmin, isAdminOrUser, isAnyone, isRole} from "../../lib/payload/access"
 
 const Users: CollectionConfig = {
   slug: "users",
-  admin: {useAsTitle: "email"},
-  access: {create: () => true, read: () => true},
+  admin: {hidden: ({user}) => !isRole(user, ["admin"]), useAsTitle: "email"},
   auth: {
     verify: {
       generateEmailHTML({token}) {
         return `Verify your email: <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/email-verification/${token}">Click here</a>`
       }
     }
+  },
+  access: {
+    read: isAdminOrUser,
+    create: isAnyone,
+    update: isAdminOrUser,
+    delete: isAdmin
   },
   labels: {singular: "User", plural: "Users"},
   fields: [
@@ -30,19 +36,22 @@ const Users: CollectionConfig = {
       label: "Date of Birth",
       name: "date_of_birth",
       type: "date",
-      required: true
+      required: true,
+      access: {update: isAdmin}
     },
     {
       label: "Nationality",
       name: "nationality",
       type: "text",
-      required: true
+      required: true,
+      access: {update: isAdmin}
     },
     {
       label: "Passport Number",
       name: "passport_number",
       type: "number",
-      required: true
+      required: true,
+      access: {update: isAdmin}
     },
     {
       label: "Role",
@@ -53,7 +62,12 @@ const Users: CollectionConfig = {
       options: [
         {value: "admin", label: "Admin"},
         {value: "user", label: "User"}
-      ]
+      ],
+      access: {
+        read: isAdmin,
+        create: isAdmin,
+        update: isAdmin
+      }
     }
   ]
 }
