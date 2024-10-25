@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 03
+// DONE REVIEWING: GITHUB COMMIT - 04
 import {CollectionConfig} from "payload/types"
 
 const Hotels: CollectionConfig = {
@@ -53,7 +53,7 @@ const Hotels: CollectionConfig = {
       label: "Availability",
       name: "availability",
       type: "radio",
-      defaultValue: "true",
+      defaultValue: "available",
       required: true,
       options: [
         {value: "not-available", label: "Not Available"},
