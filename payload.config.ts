@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT - 06
+// DONE REVIEWING: GITHUB COMMIT - 07
 import {viteBundler} from "@payloadcms/bundler-vite"
 import {mongooseAdapter} from "@payloadcms/db-mongodb"
 import {lexicalEditor} from "@payloadcms/richtext-lexical"
@@ -21,5 +21,5 @@ export default buildConfig({
   typescript: {outputFile: path.resolve(__dirname, "payload-types.ts")},
   editor: lexicalEditor({}),
   routes: {admin: "/dashboard"},
-  collections: [Users, Media, Packages, Airlines, Hotels, Orders]
+  collections: [Users, Airlines, Hotels, Packages, Orders, Media]
 })
