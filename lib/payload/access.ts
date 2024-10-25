@@ -1,13 +1,15 @@
-// DONE REVIEWING: GITHUB COMMIT
-import {Access} from "payload/types"
+// DONE REVIEWING: GITHUB COMMIT - 01
+import {Access, AccessArgs} from "payload/types"
 import {User} from "../../payload-types"
 
-export const isRole = function isRole(user: User, roles: User["role"][] = []): boolean {
+export const isRole = function isRole(user: Partial<User>, roles: User["role"][] = []): boolean {
   if (roles.some((role) => user.role === role)) return true
   return false
 }
 
-export const isAdmin: Access = function isAdmin({req: {user}}) {
+type IsAdmin = (args: AccessArgs<unknown, User>) => boolean
+
+export const isAdmin: IsAdmin = function isAdmin({req: {user}}) {
   if (!user) return false
   return isRole(user, ["admin"])
 }
