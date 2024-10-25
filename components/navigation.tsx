@@ -1,6 +1,6 @@
 "use client"
 
-// DONE REVIEWING: GITHUB COMMIT - 04
+// DONE REVIEWING: GITHUB COMMIT - 05
 
 import {Dialog, DialogPanel} from "@headlessui/react"
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
@@ -13,7 +13,7 @@ export const Logo = function Logo() {
   return (
     <Link href="/" className="-m-1.5 p-1.5">
       <span className="whitespace-nowrap text-xl font-semi-bold tracking-tight">
-        <span className="text-primary">Dar</span> Abu Zubaidah
+        <span className="text-primary">Darb</span> Zubaidah
         <span className="text-primary">.</span>
       </span>
     </Link>
