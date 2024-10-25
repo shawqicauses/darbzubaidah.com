@@ -1,7 +1,7 @@
 {
-  "reviewed": true,
+  "reviewed": "true - 01",
   "ext": "js ts",
   "exec": "ts-node --project tsconfig.server.json server.ts -- -I",
-  "watch": ["server.ts", "server/**/*.ts"],
+  "watch": ["server.ts", "payload.config.ts", "server/**/*.ts"],
   "stdin": false
 }
