@@ -1,5 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import {CollectionConfig} from "payload/types"
+
+/*
+Questions:
+- what is "dates" field in create custom package form?
+- what is "VISA option" field in create custom package form?
+*/
 
 /*
 Notes For Payload CMS:
@@ -29,6 +35,7 @@ const Packages: CollectionConfig = {
       name: "airline",
       type: "relationship",
       relationTo: "airlines",
+      hasMany: false,
       required: true
     },
     {
@@ -71,6 +78,7 @@ const Packages: CollectionConfig = {
           label: "Hotel",
           name: "makkah_accommodation_hotel",
           type: "relationship",
+          hasMany: false,
           relationTo: "hotels",
           required: true,
           filterOptions: {
@@ -98,6 +106,7 @@ const Packages: CollectionConfig = {
           name: "median_accommodation_hotel",
           type: "relationship",
           relationTo: "hotels",
+          hasMany: false,
           required: true,
           filterOptions: {
             city: {
