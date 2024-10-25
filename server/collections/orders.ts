@@ -1,4 +1,4 @@
-// DONE REVIEWING: GITHUB COMMIT
+// DONE REVIEWING: GITHUB COMMIT - 01
 import {CollectionConfig} from "payload/types"
 
 const Orders: CollectionConfig = {
@@ -71,6 +71,42 @@ const Orders: CollectionConfig = {
           equals: "medina"
         }
       }
+    },
+    {
+      label: "Quote",
+      name: "quote",
+      type: "array",
+      maxRows: 1,
+      fields: [
+        {
+          label: "Costs",
+          labels: {singular: "Cost", plural: "Costs"},
+          name: "costs",
+          type: "array",
+          required: true,
+          fields: [
+            {
+              label: "Description",
+              name: "cost_description",
+              type: "text",
+              required: true
+            },
+            {
+              label: "Amount",
+              name: "cost_amount",
+              type: "number",
+              required: true
+            },
+            {
+              label: "Per Passenger",
+              name: "cost_per_passenger",
+              type: "checkbox",
+              defaultValue: false,
+              required: true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
