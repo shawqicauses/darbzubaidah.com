@@ -1,9 +1,12 @@
-// DONE REVIEWING: GITHUB COMMIT - 04
+// DONE REVIEWING: GITHUB COMMIT - 05
 import {CollectionConfig} from "payload/types"
+import {isAdmin, isAnyone} from "../../lib/payload/access"
+import {isHidden} from "../../lib/payload/admin"
 
 const Hotels: CollectionConfig = {
   slug: "hotels",
-  admin: {useAsTitle: "name"},
+  admin: {hidden: isHidden, useAsTitle: "name"},
+  access: {read: isAnyone, create: isAdmin, update: isAdmin, delete: isAdmin},
   labels: {singular: "Hotel", plural: "Hotels"},
   fields: [
     {
