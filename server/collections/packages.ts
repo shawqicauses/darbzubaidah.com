@@ -1,5 +1,7 @@
-// DONE REVIEWING: GITHUB COMMIT - 02
+// DONE REVIEWING: GITHUB COMMIT - 03
 import {CollectionConfig} from "payload/types"
+import {isAdmin, isAnyone} from "../../lib/payload/access"
+import {isHidden} from "../../lib/payload/admin"
 
 /*
 Questions:
@@ -15,7 +17,8 @@ Notes For Payload CMS:
 
 const Packages: CollectionConfig = {
   slug: "packages",
-  admin: {useAsTitle: "title"},
+  admin: {hidden: isHidden, useAsTitle: "title"},
+  access: {read: isAnyone, create: isAdmin, update: isAdmin, delete: isAdmin},
   labels: {singular: "Package", plural: "Packages"},
   fields: [
     {
