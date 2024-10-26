@@ -1,5 +1,5 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
-import {Access, AccessArgs} from "payload/types"
+// DONE REVIEWING: GITHUB COMMIT - 02
+import {Access, AccessArgs, FieldAccess} from "payload/types"
 import {User} from "../../payload-types"
 
 export const isRole = function isRole(user: Partial<User>, roles: User["role"][] = []): boolean {
@@ -26,14 +26,22 @@ export const isAdminOrUser: Access = function isAdminOrUser({req: {user}}) {
   return {id: {equals: user.id}}
 }
 
-export const isAdminOrOrderedBy: Access = function isAdminOrOrderedBy({req: {user}}) {
-  if (!user) return false
-  if (isRole(user, ["admin"])) return true
+export const isUserField: FieldAccess = function isUserField({req, data}) {
+  const {user} = req
+  if (user && data?.user) if (user.id === data.user?.id) return true
+  return false
+}
 
-  return {
-    orderedBy: {
-      equals: user.id
-    }
+export const isAdminOrUserField: FieldAccess = function isAdminOrUserField({req, data}) {
+  if (isAdmin({req})) return true
+  return isUserField({req, data})
+}
+
+export const isWebsiteOnly = function isWebsiteOnly(authorizationFunction: Access): Access {
+  return async function callback({req}) {
+    const {referer} = req.headers
+    if (referer?.includes("dashboard")) return isAdmin({req})
+    return authorizationFunction({req})
   }
 }
 
