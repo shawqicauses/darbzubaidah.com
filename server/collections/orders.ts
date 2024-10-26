@@ -1,9 +1,23 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import {CollectionConfig} from "payload/types"
+import {
+  isAdmin,
+  isAdminOrSignedIn,
+  isAdminOrUser,
+  isAdminOrUserField,
+  isUserField,
+  isWebsiteOnly
+} from "../../lib/payload/access"
 
 const Orders: CollectionConfig = {
   slug: "orders",
   labels: {singular: "Order", plural: "Orders"},
+  access: {
+    read: isAdminOrUser,
+    create: ({req}) => isWebsiteOnly(isAdminOrSignedIn)({req}),
+    update: isAdmin,
+    delete: isAdmin
+  },
   fields: [
     {
       label: "User",
@@ -104,9 +118,30 @@ const Orders: CollectionConfig = {
               defaultValue: false,
               required: true
             }
-          ]
+          ],
+          access: {
+            update: isAdmin
+          }
+        },
+        {
+          label: "Response",
+          name: "response",
+          type: "select",
+          defaultValue: "accepted",
+          required: true,
+          options: [
+            {value: "accepted", label: "Accepted"},
+            {value: "rejected", label: "Rejected"}
+          ],
+          access: {
+            update: isUserField
+          }
         }
-      ]
+      ],
+      access: {
+        create: isAdmin,
+        update: isAdminOrUserField
+      }
     }
   ]
 }
