@@ -1,8 +1,12 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import {CollectionConfig} from "payload/types"
+import {isAdmin, isAnyone} from "../../lib/payload/access"
+import {isHidden} from "../../lib/payload/admin"
 
 const Media: CollectionConfig = {
   slug: "media",
+  admin: {hidden: isHidden},
+  access: {read: isAnyone, create: isAdmin, update: isAdmin, delete: isAdmin},
   labels: {singular: "Media", plural: "Media"},
   upload: {
     staticURL: "/media",
