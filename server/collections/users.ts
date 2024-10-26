@@ -1,10 +1,11 @@
-// DONE REVIEWING: GITHUB COMMIT - 01
+// DONE REVIEWING: GITHUB COMMIT - 02
 import {CollectionConfig} from "payload/types"
-import {isAdmin, isAdminOrUser, isAnyone, isRole} from "../../lib/payload/access"
+import {isAdmin, isAdminOrUser, isAnyone} from "../../lib/payload/access"
+import {isHidden} from "../../lib/payload/admin"
 
 const Users: CollectionConfig = {
   slug: "users",
-  admin: {hidden: ({user}) => !isRole(user, ["admin"]), useAsTitle: "email"},
+  admin: {hidden: isHidden, useAsTitle: "email"},
   auth: {
     verify: {
       generateEmailHTML({token}) {
